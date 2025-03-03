@@ -18,3 +18,4 @@ public class ProyectoConEmpleadosDTO {
 }
 
 // idProyecto String e idEmpleado int en lugar de Proyecto y Empleado objetos
+//en funcion de lo que se quiera enviar podria omitirse el idEmpleado y el idProyecto y dejar solo los nombres, en este caso se deja asi

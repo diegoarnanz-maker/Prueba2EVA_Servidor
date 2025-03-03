@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +18,7 @@ import proyectos.modelo.service.IEmpleadoService;
 @RestController
 @RequestMapping("api/empleados")
 @CrossOrigin(origins = "*")
-public class EmpleadosRestController {
+public class EmpleadoRestController {
 
     @Autowired
     private IEmpleadoService empleadoService;
@@ -39,5 +40,21 @@ public class EmpleadosRestController {
 
         return ResponseEntity.ok(empleadosDto);
     }
+
+    @GetMapping("/{idEmpleado}")
+    public ResponseEntity<EmpleadoDTO> buscarEmpleadoPorId(@PathVariable int idEmpleado) {
+        return empleadoService.read(idEmpleado)
+                .map(empleado -> {
+                    EmpleadoDTO dto = modelMapper.map(empleado, EmpleadoDTO.class);
+
+                    dto.setPerfil(empleado.getPerfil().getNombre());
+                    dto.setDepartamento(empleado.getDepartamento().getNombre());
+
+                    return ResponseEntity.ok(dto);
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    
 
 }
