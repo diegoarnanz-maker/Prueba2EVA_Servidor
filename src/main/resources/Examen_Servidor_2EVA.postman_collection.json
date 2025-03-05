@@ -1,0 +1,711 @@
+{
+	"info": {
+		"_postman_id": "6571a5b6-0d73-42e5-b7ce-5f58c094cbf6",
+		"name": "Examen_Servidor_2EVA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37043379"
+	},
+	"item": [
+		{
+			"name": "/clientes",
+			"item": [
+				{
+					"name": "findAll{Entity}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read{cif}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/clientes/A22222222",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clientes",
+								"A22222222"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create{entity}",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cif\": \"A9999999\",\r\n    \"nombre\": \"Diego\",\r\n    \"apellidos\": \"Arnanz\",\r\n    \"domicilio\": \"Madrid\",\r\n    \"facturacionAnual\": 1.2E7,\r\n    \"numeroEmpleados\": 1500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update{cif}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cif\": \"A9999999\",\r\n    \"nombre\": \"Diego_mod\",\r\n    \"apellidos\": \"Arnanz\",\r\n    \"domicilio\": \"Madrid\",\r\n    \"facturacionAnual\": 1.2E7,\r\n    \"numeroEmpleados\": 1500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/clientes/{{cif}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clientes",
+								"{{cif}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete{cif}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/clientes/{{cif}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clientes",
+								"{{cif}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/empleados",
+			"item": [
+				{
+					"name": "findAll{DTO}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/empleados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"empleados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read{DTO}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/empleados/{{idEmpleado}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"empleados",
+								"{{idEmpleado}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/proyectos",
+			"item": [
+				{
+					"name": "findall{DTO}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/proyectos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"proyectos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/proyectos/{{idProyecto}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"proyectos",
+								"{{idProyecto}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create{DTO}",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idProyecto\": \"P005\",\r\n    \"descripcion\": \"Desarrollo de CRM\",\r\n    \"fechaInicio\": \"2025-04-01\",\r\n    \"fechaFinPrevisto\": \"2025-10-15\",\r\n    \"jefeProyecto\": \"Rafael\",\r\n    \"cliente\": \"Carlos_remod\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/proyectos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"proyectos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "readFacturaByIdProyecto (idProyecto)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/proyectos/factura/{{idProyecto}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"proyectos",
+								"factura",
+								"{{idProyecto}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/departamentos",
+			"item": [
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/departamentos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"departamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read(idDepartamento)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/departamentos/{{idDepartamento}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"departamentos",
+								"{{idDepartamento}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create(Departamento)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idDepar\": 50,\r\n    \"nombre\": \"Departamento postman\",\r\n    \"direccion\": \"Segovia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/departamentos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"departamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update(Departamento)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idDepar\": 10,\r\n    \"nombre\": \"Gestion Personas\",\r\n    \"direccion\": \"Madrid\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/departamentos/{{idDepartamento}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"departamentos",
+								"{{idDepartamento}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/facturas",
+			"item": [
+				{
+					"name": "findAll -dto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/facturas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"facturas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read{idFactura}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/facturas/{{idFactura}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"facturas",
+								"{{idFactura}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create{facturaDTO}",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idFactura\": \"F2020002\",\r\n    \"descripcion\": \"Formacion a cliente 2 postman\",\r\n    \"idProyecto\": \"FOR2020001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/facturas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"facturas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update{idFactura}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idFactura\": \"F2020002\",\r\n    \"descripcion\": \"Formacion a cliente 2 postman MOD\",\r\n    \"idProyecto\": \"FOR2020001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/facturas/{{idFactura}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"facturas",
+								"{{idFactura}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete{idFactura}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/facturas/{{idFactura}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"facturas",
+								"{{idFactura}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/perfiles",
+			"item": [
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/perfiles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"perfiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read{idPerfil}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/perfiles/{{idPerfil}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"perfiles",
+								"{{idPerfil}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create{pefillEntity}",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Postman\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/perfiles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"perfiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update{idPerfil}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Postman MOD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/perfiles/{{idPerfil}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"perfiles",
+								"{{idPerfil}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete{idPerfil}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/perfiles/{{idPerfil}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"perfiles",
+								"{{idPerfil}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/proyectos-con-empleados",
+			"item": [
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/proyectos-con-empleados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"proyectos-con-empleados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read{numeroOrden}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/proyectos-con-empleados/{{numeroOrden}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"proyectos-con-empleados",
+								"{{numeroOrden}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create{dto}",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idProyecto\": \"FOR2020002\",\r\n    \"nombreProyecto\": \"Rafael\",\r\n    \"idEmpleado\": 115,\r\n    \"nombreEmpleado\": \"Carlos\",\r\n    \"horasAsignadas\": 100,\r\n    \"fechaIncorporacion\": \"2026-01-16\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/proyectos-con-empleados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"proyectos-con-empleados"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

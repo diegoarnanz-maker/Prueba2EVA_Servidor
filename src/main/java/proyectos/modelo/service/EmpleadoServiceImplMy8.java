@@ -17,4 +17,12 @@ public class EmpleadoServiceImplMy8 extends GenericoCRUDServiceImplMy8<Empleado,
         return empleadoRepository;
     }
 
+    @Override
+    public String obtenerNombreCompleto(Empleado empleado) {
+        if (empleado == null) {
+            return "Desconocido";
+        }
+        return (empleado.getApellidos() + ", " + empleado.getNombre()).trim();
+    }
+
 }

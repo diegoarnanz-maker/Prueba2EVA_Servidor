@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import proyectos.modelo.dto.ProyectoDTO;
+import proyectos.modelo.dto_examen.FacturaDTOExamen;
 import proyectos.modelo.entity.EstadoProyecto;
 import proyectos.modelo.entity.Proyecto;
+import proyectos.modelo.service.IFacturaService;
 import proyectos.modelo.service.IProyectoService;
 
 @RestController
@@ -29,6 +31,15 @@ public class ProyectoRestController {
 
     @Autowired
     private IProyectoService proyectoService;
+
+    @Autowired
+    private IFacturaService facturaService;
+
+    //Lo he hecho devolviendo una lista de facturas porque un proyecto puede tener varias facturas por la relacion que tiene en la bbdd
+    @GetMapping("/factura/{idProyecto}")
+    public ResponseEntity<List<FacturaDTOExamen>> readFacturaByIdProyecto(@PathVariable String idProyecto) {
+        return ResponseEntity.ok(facturaService.ObtenerFacturaDTOExamen(idProyecto));
+    }
 
     @GetMapping
     public ResponseEntity<List<ProyectoDTO>> listarProyectos() {
